@@ -7,6 +7,7 @@ import CurrentWeather from '@/components/CurrentWeather';
 import WeatherForecast from '@/components/WeatherForecast';
 import WeatherDetails from '@/components/WeatherDetails';
 import WeatherBackground from '@/components/WeatherBackground';
+import Map from '@/components/Map';
 import { mockWeatherData } from '@/data/mockWeatherData';
 
 const Index = () => {
@@ -70,6 +71,10 @@ const Index = () => {
                 wind={weatherData.current.wind}
                 feelsLike={weatherData.current.feelsLike}
               />
+            </div>
+            
+            <div className="mt-8">
+              <Map location={weatherData.current.location} />
             </div>
             
             <WeatherForecast forecasts={weatherData.forecast} />
