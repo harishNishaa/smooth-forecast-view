@@ -7,7 +7,6 @@ import CurrentWeather from '@/components/CurrentWeather';
 import WeatherForecast from '@/components/WeatherForecast';
 import WeatherDetails from '@/components/WeatherDetails';
 import WeatherBackground from '@/components/WeatherBackground';
-import Map from '@/components/Map';
 import { mockWeatherData } from '@/data/mockWeatherData';
 
 const Index = () => {
@@ -15,7 +14,6 @@ const Index = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Show a welcome toast when the app loads
     toast({
       title: "Welcome to WeatherVue!",
       description: "View current weather and forecasts for your location.",
@@ -25,9 +23,6 @@ const Index = () => {
 
   const handleSearch = (location: string) => {
     setLoading(true);
-    
-    // In a real app, this would be an API call
-    // For now, we'll just simulate a delay and use mock data
     setTimeout(() => {
       setLoading(false);
       toast({
@@ -36,7 +31,6 @@ const Index = () => {
         duration: 3000
       });
       
-      // Update location in the mock data
       setWeatherData({
         ...weatherData,
         current: {
@@ -71,10 +65,6 @@ const Index = () => {
                 wind={weatherData.current.wind}
                 feelsLike={weatherData.current.feelsLike}
               />
-            </div>
-            
-            <div className="mt-8">
-              <Map location={weatherData.current.location} />
             </div>
             
             <WeatherForecast forecasts={weatherData.forecast} />

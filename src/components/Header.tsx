@@ -2,6 +2,7 @@
 import React from 'react';
 import { Search, MapPin } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = ({ onSearch }: { onSearch: (location: string) => void }) => {
   const [searchValue, setSearchValue] = React.useState("");
@@ -15,10 +16,11 @@ const Header = ({ onSearch }: { onSearch: (location: string) => void }) => {
   
   return (
     <header className="py-6 px-4 flex flex-col sm:flex-row justify-between items-center gap-4 animate-fade-in">
-      <div className="flex items-center">
+      <div className="flex items-center gap-4">
         <h1 className="text-2xl md:text-3xl font-bold text-primary">
           WeatherVue
         </h1>
+        <ThemeToggle />
       </div>
       
       <form onSubmit={handleSubmit} className="relative w-full max-w-md">
@@ -26,7 +28,7 @@ const Header = ({ onSearch }: { onSearch: (location: string) => void }) => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           placeholder="Search for a city..."
-          className="pl-10 pr-4 py-2 w-full bg-white/70 backdrop-blur-sm rounded-full border border-gray-200"
+          className="pl-10 pr-4 py-2 w-full bg-white/70 dark:bg-gray-950/70 backdrop-blur-sm rounded-full border border-gray-200 dark:border-gray-800"
         />
         <button 
           type="submit" 
